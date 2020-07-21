@@ -1,5 +1,0 @@
-com/camunda/demo/roadshow/cmmn/LoggerDelegate.class
-com/camunda/demo/roadshow/cmmn/listener/CloseCaseInstanceListener.class
-com/camunda/demo/roadshow/cmmn/listener/SignalProcessInstanceListener$MyOperationCaseTerminate.class
-com/camunda/demo/roadshow/cmmn/CamundaBpmProcessApplication.class
-com/camunda/demo/roadshow/cmmn/listener/SignalProcessInstanceListener.class
