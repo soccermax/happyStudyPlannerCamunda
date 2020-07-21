@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<cmmn:definitions xmlns:dc="http://www.omg.org/spec/CMMN/20151109/DC" xmlns:di="http://www.omg.org/spec/CMMN/20151109/DI" xmlns:cmmndi="http://www.omg.org/spec/CMMN/20151109/CMMNDI" xmlns:cmmn="http://www.omg.org/spec/CMMN/20151109/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:camunda="http://camunda.org/schema/1.0/cmmn" id="Test" targetNamespace="http://bpmn.io/schema/cmmn" exporter="Camunda Modeler" exporterVersion="4.1.1">
+<cmmn:definitions xmlns:dc="http://www.omg.org/spec/CMMN/20151109/DC" xmlns:di="http://www.omg.org/spec/CMMN/20151109/DI" xmlns:cmmndi="http://www.omg.org/spec/CMMN/20151109/CMMNDI" xmlns:cmmn="http://www.omg.org/spec/CMMN/20151109/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:camunda="http://camunda.org/schema/1.0/cmmn" id="Test" targetNamespace="http://bpmn.io/schema/cmmn" exporter="Camunda Modeler" exporterVersion="4.1.0">
   <cmmn:case id="learningagreement-check" name="Learning Agreement überprüfen">
     <cmmn:casePlanModel id="CasePlanModel_1" name="Learning Agreement überprüfen" autoComplete="true">
       <cmmn:extensionElements>
@@ -22,15 +22,14 @@
       <cmmn:planItem id="PlanItem_1pvr24e" definitionRef="Milestone_0ycgto9">
         <cmmn:entryCriterion id="EntryCriterion_1do6tb1" sentryRef="Sentry_1d1r8fw" />
       </cmmn:planItem>
-      <cmmn:planItem id="PlanItem_0krdi6z" name="KI-Score Berechnung erneut starten" definitionRef="HumanTask_0smim2v">
-        <cmmn:itemControl id="PlanItemControl_0jl44yz">
-          <cmmn:manualActivationRule id="ManualActivationRule_1ijc3vw" />
-        </cmmn:itemControl>
-      </cmmn:planItem>
       <cmmn:planItem id="PlanItem_17l4d65" definitionRef="HumanTask_0pwj23s">
         <cmmn:itemControl id="PlanItemControl_1xpyiu8">
-          <cmmn:repetitionRule id="RepetitionRule_1py3gto" />
           <cmmn:manualActivationRule id="ManualActivationRule_0lg4ltg" />
+        </cmmn:itemControl>
+      </cmmn:planItem>
+      <cmmn:planItem id="PlanItem_0krdi6z" name="KI-Score Berechnung erneut starten" definitionRef="Task_1mnbzvm">
+        <cmmn:itemControl id="PlanItemControl_0x00zs4">
+          <cmmn:manualActivationRule id="ManualActivationRule_06o6w1i" />
         </cmmn:itemControl>
       </cmmn:planItem>
       <cmmn:sentry id="Sentry_1mk5hg3">
@@ -48,8 +47,8 @@
           <cmmn:standardEvent>occur</cmmn:standardEvent>
         </cmmn:planItemOnPart>
       </cmmn:sentry>
-      <cmmn:humanTask id="HumanTask_0782kow" name="abgelehntes Learning Agreement genauer überprüfen" camunda:formKey="embedded:app:case-form.html" />
-      <cmmn:milestone id="Milestone_0vihurj" name="Prüfung abgeschlossen" />
+      <cmmn:humanTask id="HumanTask_0782kow" name="Entscheidung über LA treffen" camunda:formKey="embedded:app:case-form.html" />
+      <cmmn:milestone id="Milestone_0vihurj" name="Entscheidung abgeschlossen" />
       <cmmn:humanTask id="HumanTask_0lbbjho" name="Learning Agreement an Kollegen weitersenden" camunda:formKey="embedded:app:case-form.html" />
       <cmmn:humanTask id="HumanTask_0rqhlbe" name="Mehr Informationen zu den Kursen von dem Studenten anfordern" camunda:formKey="embedded:app:case-form.html" />
       <cmmn:milestone id="Milestone_0ycgto9" name="Vorzeitig vollständig abgelehnt">
@@ -59,8 +58,8 @@
           </camunda:caseExecutionListener>
         </cmmn:extensionElements>
       </cmmn:milestone>
-      <cmmn:humanTask id="HumanTask_0smim2v" name="Erklärung zum Gesundheits-zustand anfordern" camunda:formKey="embedded:app:gesundheitszustand-anfordern.html" />
-      <cmmn:humanTask id="HumanTask_0pwj23s" name="Uns fällt bestimmt noch was cooles ein" />
+      <cmmn:humanTask id="HumanTask_0pwj23s" name="Kommentar zu den Kursen verfassen" />
+      <cmmn:task id="Task_1mnbzvm" name="Erklärung zum Gesundheits-zustand anfordern" />
       <cmmn:exitCriterion id="ExitCriterion_0yp74dm" sentryRef="Sentry_0eowyma" />
     </cmmn:casePlanModel>
   </cmmn:case>
@@ -99,7 +98,7 @@
         <cmmndi:CMMNLabel />
       </cmmndi:CMMNShape>
       <cmmndi:CMMNShape id="PlanItem_0m71yto_di" cmmnElementRef="PlanItem_0czngvy">
-        <dc:Bounds x="301" y="319" width="100" height="80" />
+        <dc:Bounds x="286" y="433" width="100" height="80" />
         <cmmndi:CMMNLabel />
       </cmmndi:CMMNShape>
       <cmmndi:CMMNShape id="PlanItem_1pvr24e_di" cmmnElementRef="PlanItem_1pvr24e">
@@ -134,12 +133,12 @@
         <di:waypoint x="408" y="189" />
         <cmmndi:CMMNLabel />
       </cmmndi:CMMNEdge>
-      <cmmndi:CMMNShape id="PlanItem_0cdy73c_di" cmmnElementRef="PlanItem_0krdi6z">
-        <dc:Bounds x="150" y="319" width="100" height="80" />
-        <cmmndi:CMMNLabel />
-      </cmmndi:CMMNShape>
       <cmmndi:CMMNShape id="PlanItem_0z7ydzg_di" cmmnElementRef="PlanItem_17l4d65">
         <dc:Bounds x="150" y="433" width="100" height="80" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="PlanItem_0v12sej_di" cmmnElementRef="PlanItem_0krdi6z">
+        <dc:Bounds x="150" y="319" width="100" height="80" />
         <cmmndi:CMMNLabel />
       </cmmndi:CMMNShape>
     </cmmndi:CMMNDiagram>
