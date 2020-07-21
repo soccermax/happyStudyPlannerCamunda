@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<cmmn:definitions xmlns:dc="http://www.omg.org/spec/CMMN/20151109/DC" xmlns:di="http://www.omg.org/spec/CMMN/20151109/DI" xmlns:cmmndi="http://www.omg.org/spec/CMMN/20151109/CMMNDI" xmlns:cmmn="http://www.omg.org/spec/CMMN/20151109/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:camunda="http://camunda.org/schema/1.0/cmmn" id="Test" targetNamespace="http://bpmn.io/schema/cmmn" exporter="Camunda Modeler" exporterVersion="4.1.0">
+<cmmn:definitions xmlns:dc="http://www.omg.org/spec/CMMN/20151109/DC" xmlns:di="http://www.omg.org/spec/CMMN/20151109/DI" xmlns:cmmndi="http://www.omg.org/spec/CMMN/20151109/CMMNDI" xmlns:cmmn="http://www.omg.org/spec/CMMN/20151109/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:camunda="http://camunda.org/schema/1.0/cmmn" id="Test" targetNamespace="http://bpmn.io/schema/cmmn" exporter="Camunda Modeler" exporterVersion="4.1.1">
   <cmmn:case id="learningagreement-check" name="Learning Agreement überprüfen">
     <cmmn:casePlanModel id="CasePlanModel_1" name="Learning Agreement überprüfen" autoComplete="true">
       <cmmn:extensionElements>
@@ -49,7 +49,7 @@
       </cmmn:sentry>
       <cmmn:humanTask id="HumanTask_0782kow" name="Entscheidung über LA treffen" camunda:formKey="embedded:app:case-form.html" />
       <cmmn:milestone id="Milestone_0vihurj" name="Entscheidung abgeschlossen" />
-      <cmmn:humanTask id="HumanTask_0lbbjho" name="Learning Agreement an Kollegen weitersenden" camunda:formKey="embedded:app:case-form.html" />
+      <cmmn:humanTask id="HumanTask_0lbbjho" name="Learning Agreement an Kollegen weitersenden" camunda:formKey="embedded:app:forward-to-colleague.html" />
       <cmmn:humanTask id="HumanTask_0rqhlbe" name="Mehr Informationen zu den Kursen von dem Studenten anfordern" camunda:formKey="embedded:app:case-form.html" />
       <cmmn:milestone id="Milestone_0ycgto9" name="Vorzeitig vollständig abgelehnt">
         <cmmn:extensionElements>
