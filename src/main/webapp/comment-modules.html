@@ -104,24 +104,24 @@ function loadCaseStatus() {
 // load case status when the form is rendered
 loadCaseStatus();
 
-camForm.on('submit', function(evt) {
+camForm.on('submit', function (evt) {
   const comments = [];
   let index = 0;
   for (const iterator of $scope.learningAgreement.courses) {
     comments.push($('#learningAgreementComment' + index).val());
     index++;
   }
-       $.ajax('https://europe-west3-happystudyplanner.cloudfunctions.net/api/learningAgreement/' + $scope.learningAgreementId + '/comments', {
-        data: JSON.stringify(comments),
-        contentType: 'application/json',
-        type: 'POST',
-        success: function (result) {
-            console.log("comments Updated");
-        },
-        error: function(err) {
-            console.log(err);
-        }
-    });
+  $.ajax('https://europe-west3-happystudyplanner.cloudfunctions.net/api/learningAgreement/' + $scope.learningAgreementId + '/comments', {
+    data: JSON.stringify(comments),
+    contentType: 'application/json',
+    type: 'POST',
+    success: function (result) {
+      console.log("comments Updated");
+    },
+    error: function (err) {
+      console.log(err);
+    }
+  });
 });
     </script>
     <style>
