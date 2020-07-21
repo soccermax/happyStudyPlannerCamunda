@@ -165,9 +165,17 @@
 
          </div>
      </div>
- 
- <script cam-script type="text/form-script">
-  
+
+	<!-- <script src="./case-form.js"></script>      -->
+
+    <!--
+    Todo: add toggle for nice UI (http://www.bootstraptoggle.com/#usage)
+    Need to load from PA here - how to do that?
+     <script src="bootstrap-toggle.min.js"></script>
+     <link href="bootstrap-toggle.min.css" rel="stylesheet">
+     -->
+	<script cam-script type="text/form-script">
+
 	 function loadCaseStatus() {
 	   // load task details via REST API from Camunda
   	   $.get( '/engine-rest/task/' + camForm.taskId, function( task ) {
@@ -188,34 +196,34 @@
 	            // remeber as Angular Scope Variable
 	            $scope.activeCaseExecutions = result2;
 	         });
-		   });	 
+		   });
 
   	       // load "finished" activities via REST API from Camunda
 	  	   $.get( '/engine-rest/history/case-activity-instance?caseInstanceId=' + task.caseInstanceId + '&finished=true', function( result3 ) {
 	         $scope.$apply(function () {
 	            $scope.finishedCaseExecutions = result3;
 	         });
-		   });			   
-	   }); 	
+		   });
+	   });
 	 };
-	 
+
 	 // load case status when the form is rendered
-	 loadCaseStatus();  	     
-	 
+	 loadCaseStatus();
+
 	 // define function to manually start an activity which is "enabled"
 	 $scope.manualStartCaseExecution = function(caseExecution) {
 	 console.log(caseExecution);
 	       var data = {
-	            "variables": { 
+	            "variables": {
 	       			"hinweise": {
-	       				"value":  $('#textareaHints').val(), 
+	       				"value":  $('#textareaHints').val(),
 	       				"type": "String"
 	       			}
-	       	    }, 
+	       	    },
 	       	    "deletions" : []
 	       };
 	       $('#textareaHints').val("");
-	       
+
 	       // Call according REST API
 		   $.ajax('/engine-rest/case-execution/' + caseExecution.id + '/manual-start', {
 		         data: JSON.stringify(data),
@@ -238,7 +246,7 @@
 		            loadCaseStatus();
 		         }
 		    });
-	 };	 
+	 };
 	 $scope.saveVorerkrankungOnServer = function() {
         $.get( '/engine-rest/task/' + camForm.taskId, function( task ) {
 		   $.ajax('/engine-rest/case-execution/' + $scope.currentTask.caseInstanceId + '/variables/vorerkrankung', {
@@ -253,7 +261,7 @@
 		         }
 		    });
 	    });
-	 };	 
+	 };
 
 	 $scope.saveRejectionOnServer = function() {
         $.get( '/engine-rest/task/' + camForm.taskId, function( task ) {
@@ -269,18 +277,9 @@
 		         }
 		    });
 	    });
-	 };	 
-
+	 };
 
   </script>
-
-<!--
-Todo: add toggle for nice UI (http://www.bootstraptoggle.com/#usage)
-Need to load from PA here - how to do that?
- <script src="bootstrap-toggle.min.js"></script>
- <link href="bootstrap-toggle.min.css" rel="stylesheet">
- -->
-
 
 
 <!-- add CMMN font inline (from https://github.com/bpmn-io/bower-cmmn-js/tree/master/dist/assets/cmmn-font/css) until part of Camunda Tasklist anyway -->

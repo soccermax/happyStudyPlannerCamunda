@@ -9,7 +9,7 @@
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="SequenceFlow1" sourceRef="StartEventProcessStarted" targetRef="Task_0xnrzm6" />
     <bpmn:sequenceFlow id="SequenceFlow_1wk18n8" sourceRef="Task_0x4ho3d" targetRef="ExclusiveGateway_1pn6b1j" />
-    <bpmn:callActivity id="Task_0x4ho3d" name="Neuantrags-prüfung" camunda:caseRef="learningagreement-pruefen">
+    <bpmn:callActivity id="Task_0x4ho3d" name="Neuantrags-prüfung" camunda:caseRef="learningagreement-check1">
       <bpmn:extensionElements>
         <camunda:in businessKey="#{execution.processBusinessKey}" />
         <camunda:in variables="all" />
