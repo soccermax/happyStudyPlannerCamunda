@@ -58,7 +58,7 @@
           </camunda:caseExecutionListener>
         </cmmn:extensionElements>
       </cmmn:milestone>
-      <cmmn:humanTask id="HumanTask_0pwj23s" name="Kommentar zu den Kursen verfassen" />
+      <cmmn:humanTask id="HumanTask_0pwj23s" name="Kommentar zu den Kursen verfassen" camunda:formKey="embedded:app:comment-modules.html" />
       <cmmn:task id="Task_1mnbzvm" name="Erklärung zum Gesundheits-zustand anfordern" />
       <cmmn:exitCriterion id="ExitCriterion_0yp74dm" sentryRef="Sentry_0eowyma" />
     </cmmn:casePlanModel>

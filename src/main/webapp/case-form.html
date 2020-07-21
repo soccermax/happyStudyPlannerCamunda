@@ -172,8 +172,6 @@
     <script cam-script type="text/form-script">
 	 function loadCaseStatus() {
     // load task details via REST API from Camunda
-    console.log(camForm);
-    console.log($scope);
     $.get('/engine-rest/task/' + camForm.taskId, function (task) {
         $scope.currentTask = task;
 
@@ -208,7 +206,6 @@
             // load the learning Agreement from Firebase
             $.get('https://europe-west3-happystudyplanner.cloudfunctions.net/api/learningAgreement/' + $scope.learningAgreementId, function (learningAgreement) {
                 $scope.$apply(function () {
-                    console.log(learningAgreement)
                     $scope.learningAgreement = learningAgreement;
                 });
             });
@@ -221,7 +218,6 @@ loadCaseStatus();
 
 // define function to manually start an activity which is "enabled"
 $scope.manualStartCaseExecution = function (caseExecution) {
-    console.log(caseExecution);
     var data = {
         "variables": {
             "hinweise": {
