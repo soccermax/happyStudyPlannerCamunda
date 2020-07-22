@@ -6,9 +6,6 @@
         <camunda:caseExecutionListener event="terminate" class="com.camunda.demo.roadshow.cmmn.listener.SignalProcessInstanceListener" />
       </cmmn:extensionElements>
       <cmmn:planItem id="PlanItem_1" definitionRef="HumanTask_0782kow" />
-      <cmmn:planItem id="PlanItem_1wtwe9i" definitionRef="Milestone_0vihurj">
-        <cmmn:entryCriterion id="EntryCriterion_1paqnr7" sentryRef="Sentry_1mk5hg3" />
-      </cmmn:planItem>
       <cmmn:planItem id="PlanItem_02wnxvo" definitionRef="HumanTask_0lbbjho">
         <cmmn:itemControl id="PlanItemControl_01bk082">
           <cmmn:manualActivationRule id="ManualActivationRule_0t1xlhg" />
@@ -19,7 +16,7 @@
           <cmmn:manualActivationRule id="ManualActivationRule_0yicwvp" />
         </cmmn:itemControl>
       </cmmn:planItem>
-      <cmmn:planItem id="PlanItem_1pvr24e" definitionRef="Milestone_0ycgto9">
+      <cmmn:planItem id="PlanItem_1pvr24e" name="Entscheidung abgeschlossen" definitionRef="Milestone_0ycgto9">
         <cmmn:entryCriterion id="EntryCriterion_1do6tb1" sentryRef="Sentry_1d1r8fw" />
       </cmmn:planItem>
       <cmmn:planItem id="PlanItem_17l4d65" definitionRef="HumanTask_0pwj23s">
@@ -32,11 +29,6 @@
           <cmmn:manualActivationRule id="ManualActivationRule_06o6w1i" />
         </cmmn:itemControl>
       </cmmn:planItem>
-      <cmmn:sentry id="Sentry_1mk5hg3">
-        <cmmn:planItemOnPart id="PlanItemOnPart_1lqodg3" sourceRef="PlanItem_1">
-          <cmmn:standardEvent>complete</cmmn:standardEvent>
-        </cmmn:planItemOnPart>
-      </cmmn:sentry>
       <cmmn:sentry id="Sentry_1d1r8fw">
         <cmmn:ifPart id="IfPart_005lqi1">
           <cmmn:condition id="Expression_025k9ns">#{ caseExecution.hasVariable('approved') &amp;&amp; caseExecution.getVariable('approved')!=null &amp;&amp; caseExecution.getVariable('approved')}</cmmn:condition>
@@ -51,9 +43,8 @@
         </cmmn:ifPart>
       </cmmn:sentry>
       <cmmn:humanTask id="HumanTask_0782kow" name="Entscheidung über Learning Agreement treffen" camunda:formKey="embedded:app:case-form.html" />
-      <cmmn:milestone id="Milestone_0vihurj" name="Entscheidung abgeschlossen" />
       <cmmn:humanTask id="HumanTask_0lbbjho" name="Learning Agreement an Kollegen weitersenden" camunda:formKey="embedded:app:forward-to-colleague.html" />
-      <cmmn:humanTask id="HumanTask_0rqhlbe" name="Mehr Informationen zu den Kursen von dem Studenten anfordern" camunda:formKey="embedded:app:case-form.html" />
+      <cmmn:humanTask id="HumanTask_0rqhlbe" name="Mehr Informationen zu den Kursen von dem Studenten anfordern" camunda:formKey="embedded:app:request-more-information.html" />
       <cmmn:milestone id="Milestone_0ycgto9" name="Vorzeitig vollständig abgelehnt">
         <cmmn:extensionElements />
       </cmmn:milestone>
@@ -64,7 +55,7 @@
   </cmmn:case>
   <cmmn:association id="Association_077cihe" sourceRef="EntryCriterion_1do6tb1" targetRef="TextAnnotation_1rz1c6w" />
   <cmmn:textAnnotation id="TextAnnotation_1rz1c6w">
-    <cmmn:text>Antrag als abgelehnt gekennzeichnet</cmmn:text>
+    <cmmn:text>Antrag als abgelehnt bzw. angenommen gekennzeichnet</cmmn:text>
   </cmmn:textAnnotation>
   <cmmndi:CMMNDI>
     <cmmndi:CMMNDiagram id="_5a66685b-5f57-4e2f-b1d1-acca4fae04b2">
@@ -77,21 +68,6 @@
         <dc:Bounds x="150" y="107" width="100" height="80" />
         <cmmndi:CMMNLabel />
       </cmmndi:CMMNShape>
-      <cmmndi:CMMNShape id="PlanItem_1wtwe9i_di" cmmnElementRef="PlanItem_1wtwe9i">
-        <dc:Bounds x="336" y="127" width="100" height="40" />
-        <cmmndi:CMMNLabel />
-      </cmmndi:CMMNShape>
-      <cmmndi:CMMNShape id="EntryCriterion_1paqnr7_di" cmmnElementRef="EntryCriterion_1paqnr7">
-        <dc:Bounds x="326" y="131" width="20" height="28" />
-        <cmmndi:CMMNLabel />
-      </cmmndi:CMMNShape>
-      <cmmndi:CMMNEdge id="PlanItemOnPart_1lqodg3_di" cmmnElementRef="PlanItemOnPart_1lqodg3" targetCMMNElementRef="EntryCriterion_1paqnr7" isStandardEventVisible="false">
-        <di:waypoint x="250" y="146" />
-        <di:waypoint x="326" y="145" />
-        <cmmndi:CMMNLabel>
-          <dc:Bounds x="247" y="209.5" width="50" height="12" />
-        </cmmndi:CMMNLabel>
-      </cmmndi:CMMNEdge>
       <cmmndi:CMMNShape id="PlanItem_020itfh_di" cmmnElementRef="PlanItem_02wnxvo">
         <dc:Bounds x="150" y="211" width="100" height="80" />
         <cmmndi:CMMNLabel />
