@@ -1,29 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:camunda="http://camunda.org/schema/1.0/dmn" id="definitions_1lqi96d" name="definitions" namespace="http://camunda.org/schema/1.0/dmn">
-  <decision id="bewertung" name="Erkrankungsbewertung">
-    <decisionTable id="decisionTable" hitPolicy="COLLECT">
-      <input id="input1" label="Vorerkrankung" camunda:inputVariable="">
-        <inputExpression id="inputExpression1" typeRef="string">
-          <text>vorerkrankung</text>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:camunda="http://camunda.org/schema/1.0/dmn" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" id="definitions_1lqi96d" name="definitions" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="4.1.0">
+  <decision id="bewertung" name="KI-Score Bewertung">
+    <decisionTable id="decisionTable" hitPolicy="FIRST">
+      <input id="input1" label="KI-Score" biodi:width="192" camunda:inputVariable="">
+        <inputExpression id="inputExpression1" typeRef="integer">
+          <text>score</text>
         </inputExpression>
       </input>
-      <output id="output1" label="Risikobewertung" name="bewertung" typeRef="string" />
+      <output id="output1" label="Antrag angenommen?" name="bewertung" typeRef="boolean" />
       <rule id="row-674068682-5">
         <inputEntry id="UnaryTests_1lyl36p">
-          <text>"Diabetis"</text>
+          <text>[0..80[</text>
         </inputEntry>
         <outputEntry id="LiteralExpression_0gxbu17">
-          <text>"rot"</text>
+          <text>false</text>
         </outputEntry>
       </rule>
       <rule id="row-674068682-6">
         <inputEntry id="UnaryTests_1jz1ztp">
-          <text>"Rücken"</text>
+          <text>[80..100]</text>
         </inputEntry>
         <outputEntry id="LiteralExpression_0nv5jp6">
-          <text>"gelb"</text>
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_032lght">
+        <inputEntry id="UnaryTests_0dm7ncj">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ll5la8">
+          <text></text>
         </outputEntry>
       </rule>
     </decisionTable>
   </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="DMNDiagram_17z88nz">
+      <dmndi:DMNShape id="DMNShape_0cyoqwu" dmnElementRef="bewertung">
+        <dc:Bounds height="80" width="180" x="160" y="80" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
 </definitions>
