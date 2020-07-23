@@ -52,6 +52,7 @@
                         <td style="background-color: #e5e5e5; font-weight: bold;">Credit Points</td>
                         <td style="background-color: #e5e5e5; font-weight: bold;">Kurs Partneruniversität</td>
                         <td style="background-color: #e5e5e5; font-weight: bold;">Credit Points</td>
+                        <td style="background-color: #e5e5e5; font-weight: bold;">Modulbeschreibung</td>
                     </tr>
 
                     <tr ng-repeat="course in learningAgreement.courses">
@@ -66,6 +67,9 @@
                         </td>
                         <td style="vertical-align: middle;">
                             {{course.courseTargetUniversity.creditPoints}}
+                        </td>
+                        <td style="vertical-align: middle;">
+                            <a href="{{course.courseTargetUniversity.moduleLink}}">Link</a>
                         </td>
                     </tr>
                 </table>
@@ -278,7 +282,7 @@ camForm.on('submit', function (evt) {
       success: function () {
         $.ajax('/engine-rest/process-instance/' + $scope.processInstanceId + '/variables/approved', {
           data: JSON.stringify({
-            "value": true,
+            "value": approved,
             "type": "boolean"
           }),
           contentType: 'application/json',

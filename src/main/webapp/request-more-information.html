@@ -59,8 +59,11 @@
                     <tr>
                         <td style="background-color: #e5e5e5; font-weight: bold;">Kurs Heimuniversität</td>
                         <td style="background-color: #e5e5e5; font-weight: bold;">Credit Points</td>
+                        <td style="background-color: #e5e5e5; font-weight: bold;">Modulbeschreibung</td>
                         <td style="background-color: #e5e5e5; font-weight: bold;">Kurs Partneruniversität</td>
                         <td style="background-color: #e5e5e5; font-weight: bold;">Credit Points</td>
+                        <td style="background-color: #e5e5e5; font-weight: bold;">Modulbeschreibung</td>
+                        <td style="background-color: #e5e5e5; font-weight: bold; min-width: 500px">Kommentar hinzufügen</td>
                     </tr>
 
                     <tr ng-repeat="course in learningAgreement.courses">
@@ -71,14 +74,23 @@
                             {{course.courseHomeUniversity.creditPoints}}
                         </td>
                         <td style="vertical-align: middle;">
+                            <a href="{{course.courseHomeUniversity.moduleLink}}">Link</a>
+                        </td>
+                        <td style="vertical-align: middle;">
                             {{course.courseTargetUniversity.name}}
                         </td>
                         <td style="vertical-align: middle;">
                             {{course.courseTargetUniversity.creditPoints}}
                         </td>
+                        <td style="vertical-align: middle;">
+                            <a href="{{course.courseTargetUniversity.moduleLink}}">Link</a>
+                        </td>
+                        <td style="vertical-align: middle; min-width: 500px">
+                            <input id={{'learningAgreementComment'+$index}} type="text"
+                                   class="form-control"/>
+                        </td>
                     </tr>
-                </table>
-            </div>
+                </table>            </div>
         </div>
     </div>
     <script cam-script type="text/form-script">

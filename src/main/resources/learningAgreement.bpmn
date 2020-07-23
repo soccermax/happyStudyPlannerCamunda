@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.1.1">
-  <bpmn:process id="learningAgreement" name="Learning Agreement 1" isExecutable="true">
+  <bpmn:process id="learningAgreement" name="Learning Agreement" isExecutable="true">
     <bpmn:startEvent id="StartEventProcessStarted" name="Student hat Learning Agreement abgeschickt" camunda:formKey="embedded:app:start-form.html">
       <bpmn:outgoing>SequenceFlow1</bpmn:outgoing>
     </bpmn:startEvent>
@@ -78,10 +78,10 @@
     </bpmn:exclusiveGateway>
     <bpmn:sequenceFlow id="Flow_1tpn5rg" sourceRef="Task_0x4ho3d" targetRef="Gateway_0tro65y" />
     <bpmn:sequenceFlow id="Flow_07igvak" name="Nein" sourceRef="Gateway_0tro65y" targetRef="EndEventProcessEnded">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${approved == false}</bpmn:conditionExpression>
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${approved == false || approved == "false"}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="Flow_0k54toj" name="Ja" sourceRef="Gateway_0tro65y" targetRef="Activity_0eo0go2">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${approved}</bpmn:conditionExpression>
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${approved == true || approved == "true"}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
@@ -202,6 +202,9 @@
           <dc:Bounds x="776" y="205" width="68" height="40" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1gs8pv7_di" bpmnElement="Activity_0su2mwt">
+        <dc:Bounds x="500" y="360" width="100" height="80" />
+      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Gateway_0gu03uy_di" bpmnElement="Gateway_0gu03uy" isMarkerVisible="true">
         <dc:Bounds x="685" y="375" width="50" height="50" />
         <bpmndi:BPMNLabel>
@@ -216,9 +219,6 @@
         <bpmndi:BPMNLabel>
           <dc:Bounds x="973" y="432" width="74" height="40" />
         </bpmndi:BPMNLabel>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1gs8pv7_di" bpmnElement="Activity_0su2mwt">
-        <dc:Bounds x="500" y="360" width="100" height="80" />
       </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
